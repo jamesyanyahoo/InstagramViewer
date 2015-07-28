@@ -4,18 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--<ImageView-->
-        <!--android:id="@+id/activity_instagram_list_view_iv_photo"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:adjustViewBounds="true"-->
-        <!--android:scaleType="centerCrop"-->
-        <!--android:visibility="invisible"/>-->
-
-    <com.yahoo.shopping.instagramviewer.GifView
+    <com.yahoo.shopping.instagramviewer.RectView
         android:id="@+id/activity_instagram_list_view_iv_photo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,15 +12,36 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop" />
+        android:scaleType="fitXY" />
 
-    <ImageView
+    <!--<com.yahoo.shopping.instagramviewer.RectView-->
+    <!--android:id="@+id/activity_instagram_list_view_iv_photo_loading"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:background="@color/background_material_light"-->
+    <!--android:adjustViewBounds="true"-->
+    <!--android:scaleType="fitXY" />-->
+
+    <com.yahoo.shopping.instagramviewer.RectView
         android:id="@+id/activity_instagram_list_view_iv_profile_photo"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/activity_instagram_list_view_iv_photo"
-        android:layout_margin="5dp" />
+        android:layout_margin="5dp"
+        android:background="#eeeeee" />
+
+    <!--<com.yahoo.shopping.instagramviewer.RectView-->
+    <!--android:id="@+id/activity_instagram_list_view_iv_profile_photo_loading"-->
+    <!--android:layout_width="35dp"-->
+    <!--android:layout_height="35dp"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:background="@color/background_material_light"-->
+    <!--android:layout_below="@id/activity_instagram_list_view_iv_photo"-->
+    <!--android:layout_margin="5dp" />-->
 
     <TextView
         android:id="@+id/activity_instagram_list_view_txt_profile_name"

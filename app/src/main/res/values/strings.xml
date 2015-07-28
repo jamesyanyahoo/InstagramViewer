@@ -3,4 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <item name="activity_instagram_item_list_view_holder" type="id"></item>
+    <item name="activity_instagram_item_list_photo_async_task" type="id"></item>
+    <item name="activity_instagram_item_list_profile_async_task" type="id"></item>
 </resources>
