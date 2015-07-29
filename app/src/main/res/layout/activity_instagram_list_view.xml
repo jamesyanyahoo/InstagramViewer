@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="5dp"
     android:background="@drawable/main_photo_style"
     android:orientation="vertical">
 
@@ -12,14 +11,13 @@
         android:layout_height="wrap_content"
         android:background="@android:color/white">
 
-        <com.yahoo.shopping.instagramviewer.RectView
+        <com.yahoo.shopping.instagramviewer.RoundedImageView
             android:id="@+id/activity_instagram_list_view_iv_profile_photo"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_margin="5dp"
-            android:background="@android:color/darker_gray" />
+            android:layout_margin="5dp" />
 
         <TextView
             android:id="@+id/activity_instagram_list_view_txt_profile_name"
@@ -29,20 +27,20 @@
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@id/activity_instagram_list_view_iv_profile_photo"
             android:layout_toRightOf="@id/activity_instagram_list_view_iv_profile_photo"
-            android:paddingLeft="3dp"
+            android:paddingLeft="1dp"
             android:paddingTop="11dp"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/activity_instagram_list_view_tv_create_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:paddingRight="15dp"
-            android:paddingTop="12dp"
-            android:text="a month ago"
+            android:paddingTop="15dp"
             android:textColor="@android:color/darker_gray"
-            android:textSize="12dp" />
+            android:textSize="10sp" />
     </RelativeLayout>
 
     <com.yahoo.shopping.instagramviewer.RectView
@@ -54,40 +52,42 @@
         android:layout_below="@id/activity_instagram_list_view_title_bar"
         android:background="@android:color/darker_gray" />
 
-    <TextView
-        android:id="@+id/activity_instagram_list_view_tv_likes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/activity_instagram_list_view_iv_photo"
-        android:paddingLeft="15dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="8dp"
-        android:text="55 Likes"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="12dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/activity_instagram_list_view_summary"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/activity_instagram_list_view_iv_photo"
-        android:layout_toEndOf="@id/activity_instagram_list_view_tv_likes"
-        android:layout_toRightOf="@id/activity_instagram_list_view_tv_likes"
-        android:paddingLeft="15dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="8dp"
-        android:text="22 comments"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="12dp"
-        android:textStyle="bold" />
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:background="@android:color/white">
 
-    <!--<TextView-->
-    <!--android:id="@+id/activity_instagram_list_view_txt_photo_title"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_alignParentLeft="true"-->
-    <!--android:layout_alignParentRight="true"-->
-    <!--android:layout_below="@id/activity_instagram_list_view_iv_profile_photo" />-->
+        <TextView
+            android:id="@+id/activity_instagram_list_view_tv_like_counts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="15dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/activity_instagram_list_view_tv_comment_counts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/activity_instagram_list_view_tv_like_counts"
+            android:layout_toRightOf="@id/activity_instagram_list_view_tv_like_counts"
+            android:paddingLeft="15dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/activity_instagram_list_view_lv_comment_list"
+        android:layout_below="@id/activity_instagram_list_view_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
 
 </RelativeLayout>

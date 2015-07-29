@@ -4,11 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 
 import java.io.BufferedInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
@@ -20,12 +18,10 @@ public class FetchImageAsyncTask extends AsyncTask<String, Void, Bitmap> {
     private static final String TAG = "InstagramListAdapter";
 
     private ImageView mView;
-//    private ImageView mLoadingView;
     private boolean mCancelRender = false;
 
-    public FetchImageAsyncTask(ImageView view/*, ImageView loadingView*/) {
+    public FetchImageAsyncTask(ImageView view) {
         mView = view;
-//        mLoadingView = loadingView;
     }
 
     private Bitmap fetchImageBitmap(String url) {
@@ -39,8 +35,8 @@ public class FetchImageAsyncTask extends AsyncTask<String, Void, Bitmap> {
             bm = BitmapFactory.decodeStream(bis);
             bis.close();
             is.close();
-        } catch (IOException e) {
-            Log.i(TAG, e.toString());
+        } catch (Exception e) {
+            Log.i(TAG, "can not fetch url: " + url);
         }
         return bm;
     }
@@ -66,6 +62,5 @@ public class FetchImageAsyncTask extends AsyncTask<String, Void, Bitmap> {
         }
 
         mView.setImageBitmap(bitmap);
-//        mLoadingView.setVisibility(View.INVISIBLE);
     }
 }
