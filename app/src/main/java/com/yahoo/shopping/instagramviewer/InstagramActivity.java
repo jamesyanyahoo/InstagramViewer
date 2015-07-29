@@ -3,6 +3,7 @@ package com.yahoo.shopping.instagramviewer;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,6 +42,11 @@ public class InstagramActivity extends ActionBarActivity implements OnListConten
         editor.commit();
 
         refreshList();
+
+        ActionBar menu = getSupportActionBar();
+        menu.setDisplayShowHomeEnabled(true);
+        menu.setLogo(R.mipmap.ic_launcher);
+        menu.setDisplayUseLogoEnabled(true);
     }
 
     @Override
