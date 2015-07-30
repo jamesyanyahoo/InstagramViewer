@@ -47,6 +47,8 @@ public class InstagramListAdapter extends ArrayAdapter<InstagramModel> {
             viewHolder.ivPhoto = (ImageView) convertView.findViewById(R.id.activity_instagram_list_view_iv_photo);
             viewHolder.ivProfilePhoto = (ImageView) convertView.findViewById(R.id.activity_instagram_list_view_iv_profile_photo);
             viewHolder.tvUserName = (TextView) convertView.findViewById(R.id.activity_instagram_list_view_txt_profile_name);
+            viewHolder.tvCaptionUserName = (TextView) convertView.findViewById(R.id.activity_instagram_comment_list_view_tv_caption_user_name);
+            viewHolder.tvCaptionComment = (TextView) convertView.findViewById(R.id.activity_instagram_comment_list_view_tv_caption_comment);
             viewHolder.tvLikeCounts = (TextView) convertView.findViewById(R.id.activity_instagram_list_view_tv_like_counts);
             viewHolder.tvCommentCounts = (TextView) convertView.findViewById(R.id.activity_instagram_list_view_tv_comment_counts);
             viewHolder.tvCreateTime = (TextView) convertView.findViewById(R.id.activity_instagram_list_view_tv_create_date);
@@ -62,6 +64,8 @@ public class InstagramListAdapter extends ArrayAdapter<InstagramModel> {
 
         if (model != null) {
             viewHolder.tvUserName.setText(model.getUserName());
+            viewHolder.tvCaptionUserName.setText(model.getUserName());
+            viewHolder.tvCaptionComment.setText(model.getTitle());
             viewHolder.ivPhoto.setImageBitmap(null);
             viewHolder.ivProfilePhoto.setImageBitmap(null);
             viewHolder.tvLikeCounts.setText(model.getLikeCounts() + " Likes");
@@ -115,6 +119,8 @@ public class InstagramListAdapter extends ArrayAdapter<InstagramModel> {
         public ImageView ivProfilePhoto;
         public ImageView ivPhoto;
         public TextView tvUserName;
+        public TextView tvCaptionUserName;
+        public TextView tvCaptionComment;
         public TextView tvCreateTime;
         public TextView tvLikeCounts;
         public TextView tvCommentCounts;

@@ -56,28 +56,52 @@
         android:id="@+id/activity_instagram_list_view_summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_below="@id/activity_instagram_list_view_iv_photo"
         android:background="@android:color/white"
         android:paddingBottom="7dp"
         android:paddingTop="7dp">
 
         <TextView
-            android:id="@+id/activity_instagram_list_view_tv_like_counts"
+            android:id="@+id/activity_instagram_comment_list_view_tv_caption_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:paddingLeft="15dp"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="10dp"
+            android:paddingTop="1dp"
+            android:textSize="11dp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/activity_instagram_comment_list_view_tv_caption_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/activity_instagram_comment_list_view_tv_caption_user_name"
+            android:layout_toRightOf="@id/activity_instagram_comment_list_view_tv_caption_user_name"
+            android:paddingLeft="5dp"
+            android:paddingTop="1dp"
+            android:textSize="11dp" />
 
         <TextView
             android:id="@+id/activity_instagram_list_view_tv_comment_counts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/activity_instagram_list_view_tv_like_counts"
-            android:layout_toRightOf="@id/activity_instagram_list_view_tv_like_counts"
-            android:paddingLeft="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/activity_instagram_comment_list_view_tv_caption_comment"
+            android:paddingRight="15dp"
+            android:paddingTop="8dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/activity_instagram_list_view_tv_like_counts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_instagram_comment_list_view_tv_caption_comment"
+            android:layout_toLeftOf="@id/activity_instagram_list_view_tv_comment_counts"
+            android:paddingRight="15dp"
+            android:paddingTop="8dp"
             android:textColor="@android:color/darker_gray"
             android:textSize="10dp"
             android:textStyle="bold" />
