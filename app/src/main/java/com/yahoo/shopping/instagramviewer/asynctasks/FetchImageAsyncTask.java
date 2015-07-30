@@ -1,4 +1,4 @@
-package com.yahoo.shopping.instagramviewer;
+package com.yahoo.shopping.instagramviewer.asynctasks;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

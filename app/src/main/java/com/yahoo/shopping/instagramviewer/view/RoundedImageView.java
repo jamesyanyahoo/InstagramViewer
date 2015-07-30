@@ -1,4 +1,4 @@
-package com.yahoo.shopping.instagramviewer;
+package com.yahoo.shopping.instagramviewer.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;

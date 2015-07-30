@@ -1,4 +1,4 @@
-package com.yahoo.shopping.instagramviewer;
+package com.yahoo.shopping.instagramviewer.comment;
 
 /**
  * Created by jamesyan on 7/29/15.

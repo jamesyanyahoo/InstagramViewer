@@ -1,9 +1,13 @@
-package com.yahoo.shopping.instagramviewer;
+package com.yahoo.shopping.instagramviewer.asynctasks;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
+
+import com.yahoo.shopping.instagramviewer.InstagramActivity;
+import com.yahoo.shopping.instagramviewer.InstagramModel;
+import com.yahoo.shopping.instagramviewer.comment.Comment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -72,11 +76,11 @@ public class FetchInstagramListAsyncTask extends AsyncTask<Void, Void, List<Inst
             model.setCreateTIme(new Date(item.getLong("created_time") * 1000));
 
             if (! item.isNull("images") && ! item.getJSONObject("images").isNull("standard_resolution")) {
-                model.setImageUrl(item.getJSONObject("images").getJSONObject("standard_resolution").getString("url"));
+                model.setPhotoUrl(item.getJSONObject("images").getJSONObject("standard_resolution").getString("url"));
             }
 
             if (! item.isNull("user")) {
-                model.setProfilePicUrl(item.getJSONObject("user").getString("profile_picture"));
+                model.setProfilePhotoUrl(item.getJSONObject("user").getString("profile_picture"));
                 model.setUserName(item.getJSONObject("user").getString("username"));
             }
 

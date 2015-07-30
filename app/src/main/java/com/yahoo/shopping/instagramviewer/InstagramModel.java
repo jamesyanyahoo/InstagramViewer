@@ -1,5 +1,7 @@
 package com.yahoo.shopping.instagramviewer;
 
+import com.yahoo.shopping.instagramviewer.comment.Comment;
+
 import java.util.Date;
 import java.util.List;
 
@@ -7,14 +9,14 @@ import java.util.List;
  * Created by jamesyan on 7/28/15.
  */
 public class InstagramModel {
-    private String link;
-    private String imageUrl;
-    private Date createTIme;
-    private String title;
-    private String profilePicUrl;
     private String userName;
-    private int likeCounts;
+    private String title;
+    private String link;
+    private String photoUrl;
+    private String profilePhotoUrl;
+    private Date createTIme;
     private List<Comment> comments;
+    private int likeCounts;
 
     public String getLink() {
         return link;
@@ -24,12 +26,12 @@ public class InstagramModel {
         this.link = link;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     public Date getCreateTIme() {
@@ -48,12 +50,12 @@ public class InstagramModel {
         this.title = title;
     }
 
-    public String getProfilePicUrl() {
-        return profilePicUrl;
+    public String getProfilePhotoUrl() {
+        return profilePhotoUrl;
     }
 
-    public void setProfilePicUrl(String profilePicUrl) {
-        this.profilePicUrl = profilePicUrl;
+    public void setProfilePhotoUrl(String profilePhotoUrl) {
+        this.profilePhotoUrl = profilePhotoUrl;
     }
 
     public String getUserName() {

@@ -1,4 +1,4 @@
-package com.yahoo.shopping.instagramviewer;
+package com.yahoo.shopping.instagramviewer.comment;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.yahoo.shopping.instagramviewer.R;
+import com.yahoo.shopping.instagramviewer.asynctasks.FetchImageAsyncTask;
+import com.yahoo.shopping.instagramviewer.view.RoundedImageView;
 
 import java.util.List;
 

@@ -1,4 +1,6 @@
-package com.yahoo.shopping.instagramviewer;
+package com.yahoo.shopping.instagramviewer.asynctasks;
+
+import com.yahoo.shopping.instagramviewer.InstagramModel;
 
 import java.util.List;
 

@@ -13,6 +13,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.yahoo.shopping.instagramviewer.asynctasks.FetchImageAsyncTask;
+import com.yahoo.shopping.instagramviewer.comment.InstagramCommentAdapter;
+
 import org.ocpsoft.prettytime.PrettyTime;
 
 import java.util.List;
@@ -73,8 +76,8 @@ public class InstagramListAdapter extends ArrayAdapter<InstagramModel> {
             if (profileImageAsyncTask != null) profileImageAsyncTask.cancel(true);
             if (imageAyncTask != null) imageAyncTask.cancel(true);
 
-            profileImageAsyncTask = new FetchImageAsyncTask(viewHolder.ivProfilePhoto).execute(model.getProfilePicUrl());
-            imageAyncTask = new FetchImageAsyncTask(viewHolder.ivPhoto).execute(model.getImageUrl());
+            profileImageAsyncTask = new FetchImageAsyncTask(viewHolder.ivProfilePhoto).execute(model.getProfilePhotoUrl());
+            imageAyncTask = new FetchImageAsyncTask(viewHolder.ivPhoto).execute(model.getPhotoUrl());
 
             convertView.setTag(R.id.activity_instagram_item_list_profile_async_task, profileImageAsyncTask);
             convertView.setTag(R.id.activity_instagram_item_list_photo_async_task, imageAyncTask);
@@ -85,22 +88,27 @@ public class InstagramListAdapter extends ArrayAdapter<InstagramModel> {
 
     public void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
-        if (listAdapter == null) {
-            // pre-condition
-            return;
-        }
+        if (listAdapter != null) {
+            int numberOfItems = listAdapter.getCount();
 
-        int totalHeight = 0;
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            View listItem = listAdapter.getView(i, null, listView);
-            listItem.measure(0, 0);
-            totalHeight += listItem.getMeasuredHeight();
-        }
+            // Get total height of all items.
+            int totalItemsHeight = 0;
+            for (int itemPos = 0; itemPos < numberOfItems; itemPos++){
+                View item = listAdapter.getView(itemPos, null, listView);
+                item.measure(0, 0);
+                totalItemsHeight += item.getMeasuredHeight();
+            }
 
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        listView.setLayoutParams(params);
-        listView.requestLayout();
+            // Get total height of all item dividers.
+            int totalDividersHeight = listView.getDividerHeight() *
+                    (numberOfItems - 1);
+
+            // Set list height.
+            ViewGroup.LayoutParams params = listView.getLayoutParams();
+            params.height = totalItemsHeight + totalDividersHeight;
+            listView.setLayoutParams(params);
+            listView.requestLayout();
+        }
     }
 
     private class ViewHolder {

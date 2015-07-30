@@ -9,6 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.yahoo.shopping.instagramviewer.asynctasks.FetchInstagramListAsyncTask;
+import com.yahoo.shopping.instagramviewer.asynctasks.OnListContentFetchComplete;
+
 import java.util.ArrayList;
 import java.util.List;
 
