@@ -9,12 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yahoo.shopping.instagramviewer.asynctasks.FetchImageAsyncTask;
+import com.yahoo.shopping.instagramviewer.comment.Comment;
 import com.yahoo.shopping.instagramviewer.comment.InstagramCommentAdapter;
+import com.yahoo.shopping.instagramviewer.view.RoundedImageView;
 
 import org.ocpsoft.prettytime.PrettyTime;
 
@@ -52,7 +55,7 @@ public class InstagramListAdapter extends ArrayAdapter<InstagramModel> {
             viewHolder.tvLikeCounts = (TextView) convertView.findViewById(R.id.activity_instagram_list_view_tv_like_counts);
             viewHolder.tvCommentCounts = (TextView) convertView.findViewById(R.id.activity_instagram_list_view_tv_comment_counts);
             viewHolder.tvCreateTime = (TextView) convertView.findViewById(R.id.activity_instagram_list_view_tv_create_date);
-            viewHolder.lvCommentList = (ListView) convertView.findViewById(R.id.activity_instagram_list_view_lv_comment_list);
+            viewHolder.lyCommentList = (LinearLayout) convertView.findViewById(R.id.activity_instagram_list_view_ly_comment_list);
 
             convertView.setTag(R.id.activity_instagram_item_list_view_holder, viewHolder);
         }
@@ -72,9 +75,23 @@ public class InstagramListAdapter extends ArrayAdapter<InstagramModel> {
             viewHolder.tvCommentCounts.setText(model.getComments().size() + " Comments");
             viewHolder.tvCreateTime.setText(new PrettyTime().format(model.getCreateTIme()));
 
+            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             if (model.getComments().size() > 3) {
-                viewHolder.lvCommentList.setAdapter(new InstagramCommentAdapter(mContext, 0, 0, model.getComments().subList(0, 2)));
-                setListViewHeightBasedOnChildren(viewHolder.lvCommentList);
+                viewHolder.lyCommentList.removeAllViews();
+
+                for(Comment comment: model.getComments().subList(0, 2)) {
+                    View view = inflater.inflate(R.layout.activity_instagram_comment_list_view, null);
+
+                    RoundedImageView ivProfile = (RoundedImageView) view.findViewById(R.id.activity_instagram_comment_list_view_iv_profile_photo);
+                    TextView tvCommentUserName = (TextView) view.findViewById(R.id.activity_instagram_comment_list_view_tv_user_name);
+                    TextView tvCommentComment = (TextView) view.findViewById(R.id.activity_instagram_comment_list_view_tv_comment);
+
+                    tvCommentUserName.setText(comment.getUserName());
+                    tvCommentComment.setText(comment.getComment());
+                    new FetchImageAsyncTask(ivProfile).execute(comment.getProfilePicUrl());
+
+                    viewHolder.lyCommentList.addView(view);
+                }
             }
 
             if (profileImageAsyncTask != null) profileImageAsyncTask.cancel(true);
@@ -124,6 +141,6 @@ public class InstagramListAdapter extends ArrayAdapter<InstagramModel> {
         public TextView tvCreateTime;
         public TextView tvLikeCounts;
         public TextView tvCommentCounts;
-        public ListView lvCommentList;
+        public LinearLayout lyCommentList;
     }
 }
