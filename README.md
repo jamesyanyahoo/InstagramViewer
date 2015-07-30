@@ -1,4 +1,4 @@
-# Todo
+# InstagramViewer
 ![alt tag](https://github.com/jamesyanyahoo/InstagramViewer/blob/master/InstagramViewer.screencast.gif)
 
 Features
