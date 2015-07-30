@@ -1,6 +1,5 @@
 # Todo
 ![alt tag](https://raw.github.com/jamesyanyahoo/InstagramViewer/master/InstagramViewer.screencast.gif)
-
 Features
 * Fetch the instagram feed and parse with JSON parser.
 * Pull down to refresh.
