@@ -7,3 +7,4 @@ Features
 * Store api key by using SharedPreferences with private access.
 * RoundedView to show the user profile.
 * Render the create date of photo with better format.
+
