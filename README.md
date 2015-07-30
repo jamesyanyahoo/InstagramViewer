@@ -1,5 +1,5 @@
 # InstagramViewer
-![alt tag](https://github.com/jamesyanyahoo/InstagramViewer/blob/master/InstagramViewer.screencast.gif)
+![alt tag](https://github.com/jamesyanyahoo/InstagramViewer/blob/5e316716f93eb3a9f93bf7730b35c741cbfa4bd6/InstagramViewer.screencast.gif)
 
 Features
 * Fetch the instagram feed and parse with JSON parser.
